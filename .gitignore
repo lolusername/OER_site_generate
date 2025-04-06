@@ -1,22 +1,34 @@
+# Hide everything by default
+*
+.*
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Only track _app and content directories
+!_app/
+!_app/**/*
+!content/
+!content/**/*
 
-# Dependencies
+# But still ignore node_modules and build files inside _app
+_app/node_modules/
+_app/dist/
+_app/.vite/
+_app/*.log
+
+# Node modules and build files
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor files
 .vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo

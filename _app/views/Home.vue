@@ -7,8 +7,10 @@ const readmeContent = ref('')
 onMounted(async () => {
   // Load README.md
   try {
-    const readmeModule = await import('../../content/README.md?raw')
-    readmeContent.value = readmeModule.default
+    const response = await fetch('/README.md', { cache: 'no-store' })
+    if (response.ok) {
+      readmeContent.value = await response.text()
+    }
   } catch (error) {
     console.error('Error loading README:', error)
   }

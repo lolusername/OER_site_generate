@@ -12,7 +12,7 @@ const isMarkdown = ref(false)
 const loadResource = async () => {
   try {
     // Try markdown first
-    let response = await fetch(`/${route.params.id}.md`)
+    let response = await fetch(`/${route.params.id}.md`, { cache: 'no-store' })
     if (response.ok) {
       const content = await response.text()
       resource.value = {
@@ -27,7 +27,7 @@ const loadResource = async () => {
     }
 
     // Try text file
-    response = await fetch(`/${route.params.id}.txt`)
+    response = await fetch(`/${route.params.id}.txt`, { cache: 'no-store' })
     if (response.ok) {
       const content = await response.text()
       resource.value = {

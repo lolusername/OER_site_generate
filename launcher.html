@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OER Viewer Launcher</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2563eb;
+            margin-top: 0;
+        }
+        .step {
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        .step h2 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 10px;
+            color: #64748b;
+        }
+        .error {
+            color: #dc2626;
+            margin-top: 10px;
+        }
+        .success {
+            color: #16a34a;
+            margin-top: 10px;
+        }
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 OER Viewer Launcher</h1>
+        
+        <div class="note">
+            First time? Make sure you have <a href="https://nodejs.org/" target="_blank">Node.js</a> installed!
+        </div>
+
+        <div class="step">
+            <h2>Step 1: Install Dependencies</h2>
+            <button onclick="runInstall()" id="installBtn">Install</button>
+            <div id="installStatus" class="status"></div>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Start the Server</h2>
+            <button onclick="startServer()" id="startBtn">Start Server</button>
+            <div id="startStatus" class="status"></div>
+        </div>
+
+        <div class="step">
+            <h2>Project Structure</h2>
+            <pre>📁 Your Project
+├── 📁 _app/         # Application code
+├── 📁 content/      # Your content files
+│   ├── 📄 *.md     # Markdown files
+│   └── 📄 *.txt    # Text files
+└── 📄 launcher.html # This file!</pre>
+        </div>
+    </div>
+
+    <script>
+        const port = window.location.port;
+        
+        async function runCommand(command) {
+            try {
+                const response = await fetch(`http://localhost:${port}/run`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                return response.json();
+            } catch (error) {
+                console.error('Error running command:', error);
+                throw error;
+            }
+        }
+
+        async function runInstall() {
+            const installBtn = document.getElementById('installBtn');
+            const status = document.getElementById('installStatus');
+            
+            installBtn.disabled = true;
+            status.className = 'status';
+            status.textContent = 'Installing dependencies...';
+            
+            try {
+                await runCommand('cd _app && npm install');
+                status.className = 'success';
+                status.textContent = '✅ Dependencies installed successfully!';
+                document.getElementById('startBtn').disabled = false;
+            } catch (error) {
+                status.className = 'error';
+                status.textContent = '❌ Installation failed. Make sure Node.js is installed.';
+                console.error('Installation error:', error);
+            } finally {
+                installBtn.disabled = false;
+            }
+        }
+
+        async function startServer() {
+            const startBtn = document.getElementById('startBtn');
+            const status = document.getElementById('startStatus');
+            
+            startBtn.disabled = true;
+            status.className = 'status';
+            status.textContent = 'Starting server...';
+            
+            try {
+                const response = await runCommand('cd _app && npm run dev');
+                status.className = 'success';
+                
+                if (response.url) {
+                    status.innerHTML = `✅ ${response.status} <a href="${response.url}" target="_blank" class="text-blue-600 hover:text-blue-800 underline">${response.url}</a>`;
+                } else {
+                    status.textContent = `✅ ${response.status}`;
+                }
+            } catch (error) {
+                status.className = 'error';
+                status.textContent = '❌ Failed to start server. Try installing dependencies first.';
+                console.error('Server start error:', error);
+                startBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html> 

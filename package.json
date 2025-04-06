@@ -4,12 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "cd _app && npm install && npm run dev",
+    "start": "node launcher.js",
     "dev": "cd _app && vite --host",
     "build": "cd _app && vite build",
     "preview": "cd _app && vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "open": "^8.4.2",
     "marked": "^4.3.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"

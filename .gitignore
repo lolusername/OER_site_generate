@@ -1,6 +1,6 @@
 
 # Node modules and build files
-node_modules
+*/node_modules
 dist
 dist-ssr
 *.local

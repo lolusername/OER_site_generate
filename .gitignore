@@ -1,13 +1,3 @@
-# Hide everything by default
-*
-.*
-
-# Only track _app and content directories
-!_app/
-!_app/**/*
-!content/
-!content/**/*
-
 # But still ignore node_modules and build files inside _app
 _app/node_modules/
 _app/dist/

@@ -1,0 +1,40 @@
+Introduction to Computer Science Notes
+====================================
+
+Key Concepts:
+------------
+1. Algorithms
+   - Step-by-step procedures for solving problems
+   - Examples: Sorting, Searching, Path Finding
+
+2. Data Structures
+   - Arrays: Fixed-size, contiguous memory
+   - Linked Lists: Dynamic size, non-contiguous
+   - Trees: Hierarchical data organization
+
+3. Programming Paradigms
+   - Imperative: Step-by-step instructions
+   - Object-Oriented: Objects and classes
+   - Functional: Pure functions, immutability
+
+Important Terms:
+---------------
+- Compiler: Translates high-level code to machine code
+- Interpreter: Executes code line by line
+- Debugging: Finding and fixing errors
+- Version Control: Tracking code changes
+
+Study Tips:
+----------
+1. Practice coding daily
+2. Break problems into smaller parts
+3. Use pseudocode for planning
+4. Test your code thoroughly
+5. Document your work
+
+Resources:
+---------
+- Online tutorials
+- Coding challenges
+- Open source projects
+- Technical documentation 

@@ -18,8 +18,27 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- README Content -->
-    <div class="prose prose-sm max-w-none prose-headings:text-gray-900 prose-a:text-blue-600" v-html="marked.parse(readmeContent)"></div>
+  <div class="mt-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="prose prose-lg max-w-none">
+      <div v-html="marked.parse(readmeContent)"></div>
+    </div>
   </div>
-</template> 
+</template>
+
+<style>
+.prose h1 {
+  @apply text-3xl font-bold mb-6 text-gray-900;
+}
+.prose h2 {
+  @apply text-2xl font-semibold mb-4 mt-8 text-gray-800;
+}
+.prose p {
+  @apply text-gray-700 mb-4 leading-relaxed;
+}
+.prose ul {
+  @apply mb-4 list-disc list-inside;
+}
+.prose li {
+  @apply text-gray-700 mb-2;
+}
+</style> 

@@ -21,7 +21,7 @@ This project aims to:
 ## 🚀 Quick Start
 
 1. **Add Content**:
-   - Start the launcher with `node launcher.js`
+   - Start the launcher with `npm start`
    - Use the browser interface to upload `.md` or `.txt` files
    - Files are automatically saved to the `content/` directory
    - Use descriptive filenames (e.g., `biology-101.md`)
@@ -50,7 +50,7 @@ This project aims to:
    - Include multimedia resources as needed
 
 2. **Upload Your Content**:
-   - Start the launcher with `node launcher.js`
+   - Start the launcher with `npm start`
    - Use the browser interface to upload your files
    - Files are automatically organized in the `content/` directory
    - No additional setup required

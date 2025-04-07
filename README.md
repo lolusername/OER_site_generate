@@ -62,26 +62,9 @@ Faculty across CUNY have reported:
 
 For more information about OER:
 - [CUNY OER Resources](https://www.cuny.edu/libraries/open-educational-resources/)
-- [Open Education Group Research](https://openedgroup.org/review)
 - [SPARC OER Research](https://sparcopen.org/open-education/)
 - [Creative Commons Open Education](https://creativecommons.org/education)
 - [OER Commons](https://www.oercommons.org/)
-
-## 📞 Support
-
-Our team is here to help:
-- Contact your department's OER liaison
-- Reach out to CETL at QCC
-- Join our faculty OER workshops
-- Request one-on-one consultations
-
-## 🤝 Join the Community
-
-We welcome contributions from all faculty members:
-- Share your course materials
-- Collaborate with colleagues
-- Provide feedback and suggestions
-- Participate in OER workshops and events
 
 ## 🙏 Acknowledgments
 

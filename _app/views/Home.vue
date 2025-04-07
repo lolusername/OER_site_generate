@@ -4,10 +4,15 @@ import { marked } from 'marked'
 
 const readmeContent = ref('')
 
+const getBaseUrl = () => {
+  return import.meta.env.PROD ? '/OER_site_generate/' : ''
+}
+
 onMounted(async () => {
   // Load README.md
   try {
-    const response = await fetch('/content/README.md', { cache: 'no-store' })
+    const baseUrl = getBaseUrl()
+    const response = await fetch(`${baseUrl}content/README.md`, { cache: 'no-store' })
     if (response.ok) {
       readmeContent.value = await response.text()
     }

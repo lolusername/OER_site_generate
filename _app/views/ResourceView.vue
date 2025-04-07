@@ -19,7 +19,7 @@ const loadResource = async () => {
   try {
     const baseUrl = getBaseUrl()
     // Try markdown first
-    let response = await fetch(`${baseUrl}${route.params.id}.md`, { cache: 'no-store' })
+    let response = await fetch(`${baseUrl}${route.params.id}.md`)
     if (response.ok) {
       const content = await response.text()
       resource.value = {
@@ -34,7 +34,7 @@ const loadResource = async () => {
     }
 
     // Try text file
-    response = await fetch(`${baseUrl}${route.params.id}.txt`, { cache: 'no-store' })
+    response = await fetch(`${baseUrl}${route.params.id}.txt`)
     if (response.ok) {
       const content = await response.text()
       resource.value = {

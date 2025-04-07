@@ -34,8 +34,18 @@ const contentPlugin = () => ({
   }
 })
 
+// Plugin to copy index.html to 404.html for SPA routing
+const spaPlugin = () => ({
+  name: 'spa-plugin',
+  writeBundle() {
+    const indexPath = path.join(__dirname, 'dist', 'index.html')
+    const notFoundPath = path.join(__dirname, 'dist', '404.html')
+    fs.copyFileSync(indexPath, notFoundPath)
+  }
+})
+
 export default defineConfig({
-  plugins: [vue(), contentPlugin()],
+  plugins: [vue(), contentPlugin(), spaPlugin()],
   base: '/OER_site_generate/',
   resolve: {
     alias: {

@@ -5,6 +5,8 @@ dist
 dist-ssr
 *.local
 
+*/package-lock.json
+
 # Logs
 *.log
 npm-debug.log*

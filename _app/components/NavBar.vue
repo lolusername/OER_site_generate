@@ -1,15 +1,41 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const isMenuOpen = ref(false)
+const resources = ref([])
 
-const resources = [
-  { id: 'biology-101', title: 'Biology 101' },
-  { id: 'sample-chemistry', title: 'Sample Chemistry' },
-  { id: 'sample-notes', title: 'Sample Notes' }
-]
+const getBaseUrl = () => {
+  return import.meta.env.PROD ? '/OER_site_generate/' : '/'
+}
+
+const formatTitle = (filename) => {
+  // Remove file extension and convert to title case
+  return filename
+    .replace(/\.(md|txt)$/, '')
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+onMounted(async () => {
+  try {
+    const baseUrl = getBaseUrl()
+    const response = await fetch(`${baseUrl}content/index.json`)
+    if (response.ok) {
+      const files = await response.json()
+      resources.value = files
+        .filter(file => file.endsWith('.md') || file.endsWith('.txt'))
+        .map(file => ({
+          id: file.replace(/\.(md|txt)$/, ''),
+          title: formatTitle(file)
+        }))
+    }
+  } catch (error) {
+    console.error('Error loading resources:', error)
+  }
+})
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value

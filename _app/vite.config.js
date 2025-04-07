@@ -9,6 +9,14 @@ const contentPlugin = () => ({
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
       if (req.url?.startsWith('/content/')) {
+        if (req.url === '/content/index.json') {
+          const contentDir = path.join(__dirname, '..', 'content')
+          const files = fs.readdirSync(contentDir)
+            .filter(file => file.endsWith('.md') || file.endsWith('.txt'))
+          res.setHeader('Content-Type', 'application/json')
+          return res.end(JSON.stringify(files))
+        }
+        
         const filePath = path.join(__dirname, '..', req.url)
         if (fs.existsSync(filePath)) {
           res.setHeader('Content-Type', 'text/plain')
@@ -25,7 +33,17 @@ const contentPlugin = () => ({
     if (!fs.existsSync(distContentDir)) {
       fs.mkdirSync(distContentDir, { recursive: true })
     }
-    fs.readdirSync(contentDir).forEach(file => {
+    
+    // Generate index.json
+    const files = fs.readdirSync(contentDir)
+      .filter(file => file.endsWith('.md') || file.endsWith('.txt'))
+    fs.writeFileSync(
+      path.join(distContentDir, 'index.json'),
+      JSON.stringify(files)
+    )
+    
+    // Copy content files
+    files.forEach(file => {
       fs.copyFileSync(
         path.join(contentDir, file),
         path.join(distContentDir, file)

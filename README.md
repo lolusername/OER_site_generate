@@ -1,6 +1,6 @@
 # OER Site Generator
 
-A user-friendly, open-source platform for creating and disseminating Open Educational Resources (OER). Developed as part of the OER initiatives at the Center for Excellence in Teaching and Learning (CETL) at Queensborough Community College, CUNY.
+A simple and efficient platform for creating and sharing Open Educational Resources (OER). This project provides a straightforward way to host and view educational content in Markdown and text formats.
 
 ## 🎯 Purpose
 
@@ -18,28 +18,26 @@ This project aims to:
 - **Instant Deployment**: Quick setup and deployment to GitHub Pages
 - **Open Source**: Freely available and customizable for your department's needs
 
-## 🚀 Quick Start
+## �� Quick Start
 
-1. **Clone the Repository**:
+1. **Start the Launcher**:
    ```bash
-   git clone https://github.com/lolusername/OER_site_generate.git
-   cd OER_site_generate
+   node launcher.js
    ```
+   This will:
+   - Start a local server
+   - Open a browser window with the launcher interface
+   - Allow you to upload and manage content files
 
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
+2. **Upload Content**:
+   - Use the launcher interface to select and upload `.md` or `.txt` files
+   - Files are automatically saved to the `content` directory
+   - Preview your content in real-time
 
-3. **Start the Development Server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Add Your Content**:
-   - Use the launcher interface to upload your OER materials
-   - Organize content by department or subject area
-   - Preview your changes in real-time
+3. **View Content**:
+   - Access your content at `http://localhost:5173`
+   - Navigate to specific resources using the URL format: `/resource/[filename]`
+   - Markdown files are automatically rendered with formatting
 
 ## 📚 For Faculty
 
@@ -101,6 +99,74 @@ This project is open source and available under the MIT License.
 ---
 
 *Part of CUNY's commitment to open education and student success*
+
+## 📁 Project Structure
+
+```
+_app/           # Vue.js application
+  components/   # Vue components
+  views/        # Page components
+  router.js     # Routing configuration
+  vite.config.js # Build configuration
+content/        # Educational content files
+  README.md    # This file
+  *.md         # Markdown files
+  *.txt        # Text files
+launcher.js     # Development server and file management
+launcher.html   # File upload interface
+```
+
+## 🔧 Technical Details
+
+- **Content Management**:
+  - Files are stored in the `content` directory
+  - Supports both Markdown (`.md`) and plain text (`.txt`) formats
+  - Automatic file organization and naming
+
+- **Development**:
+  - Built with Vue 3 and Vite
+  - Uses Vue Router for navigation
+  - Markdown rendering with marked.js
+  - Tailwind CSS for styling
+
+- **Deployment**:
+  - Automatically deploys to GitHub Pages
+  - Handles client-side routing with 404.html
+  - Supports both development and production environments
+
+## 📝 Adding Content
+
+1. **Prepare Your Files**:
+   - Create content in Markdown or text format
+   - Use descriptive filenames (e.g., `biology-101.md`)
+   - Include proper formatting for Markdown files
+
+2. **Upload Process**:
+   - Launch the application with `node launcher.js`
+   - Use the web interface to select and upload files
+   - Files are immediately available for viewing
+
+3. **Viewing Content**:
+   - Access files through the navigation menu
+   - Direct URL access: `/resource/[filename]`
+   - Automatic formatting for Markdown content
+
+## 🛠️ Development Commands
+
+- `node launcher.js` - Start the development server and launcher
+- `npm run dev` - Start the Vue development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+## 🔍 Troubleshooting
+
+- **File Not Found**: Ensure files are uploaded to the `content` directory
+- **Formatting Issues**: Check Markdown syntax in `.md` files
+- **Server Errors**: Verify all dependencies are installed
+
+## 📜 License
+
+This project is open source and available under the MIT License.
 
 ## Project Structure
 

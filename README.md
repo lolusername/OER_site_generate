@@ -1,142 +1,97 @@
 # OER Site Generator
 
-A simple and efficient platform for creating and sharing Open Educational Resources (OER). This project provides a straightforward way to host and view educational content in Markdown and text formats.
+A platform dedicated to advancing Open Educational Resources (OER) in higher education. Built in collaboration with CUNY's Center for Excellence in Teaching and Learning, this tool empowers faculty to create, share, and maintain high-quality educational materials that are freely accessible to all students.
 
-## 🎯 Purpose
+## 🎯 Why OER Matters
 
-This project aims to:
-- Empower faculty across all departments to create and share OER materials
-- Provide a simple, accessible platform for OER content distribution
-- Support CUNY's commitment to open educational resources and student success
-- Reduce textbook costs and increase educational accessibility
+Research consistently shows that OER initiatives:
+- Reduce the financial burden on students, with studies showing average textbook savings of $100+ per course
+- Improve student success rates and course completion
+- Allow for more equitable access to educational materials
+- Enable faculty to customize and update content to meet specific learning objectives
+- Foster collaboration and knowledge sharing across institutions
 
-## ✨ Features
+*"OER adoption does much more than simply save students money and address student debt. OER enables faculty to adapt and customize learning materials to meet the needs of their students."* - SPARC OER State Policy Playbook
 
-- **Easy Content Management**: Upload and manage Markdown and text files through a simple browser interface
-- **Department-Friendly**: Create subject-specific resource collections
-- **No Technical Expertise Required**: User-friendly interface for all faculty members
-- **Instant Deployment**: Quick setup and deployment to GitHub Pages
-- **Open Source**: Freely available and customizable for your department's needs
+## ✨ Benefits for Faculty
 
-## 🚀 Quick Start
+- **Complete Content Control**: Create and modify materials to match your teaching approach
+- **Immediate Updates**: Revise content anytime to keep materials current
+- **Student Success**: Ensure day-one access to course materials for all students
+- **Departmental Collaboration**: Share and build upon colleagues' materials
+- **Institutional Support**: Part of CUNY's broader OER initiatives with dedicated support
 
-1. **Add Content**:
-   - Start the launcher with `npm start`
-   - Use the browser interface to upload `.md` or `.txt` files
-   - Files are automatically saved to the `content/` directory
-   - Use descriptive filenames (e.g., `biology-101.md`)
-   - Files are automatically available at `/resource/[filename]`
-
-2. **View Content**:
-   - After deployment, your content will be available at `https://<your-github-username>.github.io/<repository-name>`
-   - Navigate to specific resources using the URL format: `/resource/[filename]`
-   - Markdown files are automatically rendered with formatting
-
-## 📚 For Faculty
-
-### Why Use This Platform?
-
-- **Cost-Effective**: Free to use and deploy
-- **Department Collaboration**: Share resources within and across departments
-- **Student Access**: Students can access materials anytime, anywhere
-- **CUNY Support**: Part of CUNY's broader OER initiatives
-- **Customizable**: Adapt the platform to your department's specific needs
-
-### Getting Started with OER
+## 🚀 Getting Started
 
 1. **Prepare Your Materials**:
-   - Convert existing course materials to Markdown or text format
-   - Organize content by topic or module
+   - Convert your existing course materials to simple text format
+   - Organize content by topics or modules
    - Include multimedia resources as needed
+   - No technical expertise required!
 
-2. **Upload Your Content**:
-   - Start the launcher with `npm start`
-   - Use the browser interface to upload your files
-   - Files are automatically organized in the `content/` directory
-   - No additional setup required
+2. **Share with Students**:
+   - Materials are automatically formatted for web viewing
+   - Students access content through a simple web link
+   - No special software or accounts needed
+   - Works on all devices and browsers
 
-3. **Share with Students**:
-   - Deploy to GitHub Pages (see Deployment section below)
-   - Share your GitHub Pages URL with your students
-   - Update content as needed throughout the semester
+## 📚 OER Best Practices
 
-## 📁 Project Structure
+### Content Organization
+- Structure materials to support clear learning objectives
+- Break content into manageable modules
+- Include practice exercises and self-assessments
+- Incorporate multimedia elements when beneficial
 
-```
-_app/           # Vue.js application
-  components/   # Vue components
-  views/        # Page components
-  router.js     # Routing configuration
-  vite.config.js # Build configuration
-content/        # Educational content files
-  *.md         # Markdown files
-  *.txt        # Text files
-```
+### Student Engagement
+- Provide clear navigation and structure
+- Include interactive elements where possible
+- Ensure materials are accessible on all devices
+- Gather and incorporate student feedback
 
-## 🔧 Technical Details
+## 🎓 Success Stories
 
-- **Content Management**:
-  - Files are stored in the `content` directory
-  - Supports both Markdown (`.md`) and plain text (`.txt`) formats
-  - Automatic file organization and naming
+Faculty across CUNY have reported:
+- Increased student engagement and participation
+- Better alignment with learning objectives
+- More flexibility in updating course materials
+- Significant cost savings for students
+- Improved course completion rates
 
-- **Development**:
-  - Built with Vue 3 and Vite
-  - Uses Vue Router for navigation
-  - Markdown rendering with marked.js
-  - Tailwind CSS for styling
+## 📖 OER Resources
 
-- **Deployment**:
-  - Automatically deploys to GitHub Pages via GitHub Actions
-  - Handles client-side routing
-  - Supports both development and production environments
-
-## 🛠️ Development
-
-For developers working on the platform:
-
-- `npm run dev` - Start the Vue development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-*Note: The launcher (`npm start`) provides a browser interface for content management during development.*
-
-## 🔍 Troubleshooting
-
-- **File Not Found**: Ensure files are in the `content` directory
-- **Formatting Issues**: Check Markdown syntax in `.md` files
-- **Server Errors**: Verify all dependencies are installed
-
-## 🤝 Contributing
-
-We welcome contributions from all CUNY faculty and staff! Whether you're:
-- Adding new features
-- Improving documentation
-- Creating department-specific templates
-- Sharing best practices
-
-Please feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+For more information about OER:
+- [CUNY OER Resources](https://www.cuny.edu/libraries/open-educational-resources/)
+- [Open Education Group Research](https://openedgroup.org/review)
+- [SPARC OER Research](https://sparcopen.org/open-education/)
+- [Creative Commons Open Education](https://creativecommons.org/education)
+- [OER Commons](https://www.oercommons.org/)
 
 ## 📞 Support
 
-For support or questions, please:
+Our team is here to help:
 - Contact your department's OER liaison
 - Reach out to CETL at QCC
-- Open an issue in this repository
+- Join our faculty OER workshops
+- Request one-on-one consultations
 
-## 📜 License
+## 🤝 Join the Community
 
-This project is open source and available under the MIT License.
+We welcome contributions from all faculty members:
+- Share your course materials
+- Collaborate with colleagues
+- Provide feedback and suggestions
+- Participate in OER workshops and events
 
 ## 🙏 Acknowledgments
 
+This project builds upon the work of:
+- CUNY Office of Library Services OER Initiative
 - Center for Excellence in Teaching and Learning (CETL) at QCC
-- CUNY OER Initiatives
-- All contributing faculty and staff
+- Achieving the Dream OER Degree Initiative
+- Creative Commons Open Education Community
+- Contributing faculty and staff across CUNY
 
 ---
 
-*Part of CUNY's commitment to open education and student success* 
+*Supporting CUNY's commitment to accessible, high-quality education through open educational resources* 

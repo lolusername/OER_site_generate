@@ -17,14 +17,14 @@ const getBaseUrl = () => {
 
 const loadResource = async () => {
   try {
-    const baseUrl = getBaseUrl()
+    const resourceId = route.params.id
     // Try markdown first
-    let response = await fetch(`${baseUrl}${route.params.id}.md`)
+    let response = await fetch(`/content/${resourceId}.md`)
     if (response.ok) {
       const content = await response.text()
       resource.value = {
         content,
-        title: route.params.id
+        title: resourceId
           .split('-')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')
@@ -34,12 +34,12 @@ const loadResource = async () => {
     }
 
     // Try text file
-    response = await fetch(`${baseUrl}${route.params.id}.txt`)
+    response = await fetch(`/content/${resourceId}.txt`)
     if (response.ok) {
       const content = await response.text()
       resource.value = {
         content,
-        title: route.params.id
+        title: resourceId
           .split('-')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')

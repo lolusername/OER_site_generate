@@ -12,8 +12,9 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "open": "^8.4.2",
     "marked": "^4.3.0",
+    "multer": "^1.4.5-lts.2",
+    "open": "^8.4.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
@@ -25,4 +26,4 @@
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.9"
   }
-} 
+}

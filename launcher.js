@@ -5,11 +5,29 @@ import open from 'open';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { createServer } from 'net';
+import multer from 'multer';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 let devServer = null;
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const contentDir = join(__dirname, 'content');
+    if (!fs.existsSync(contentDir)) {
+      fs.mkdirSync(contentDir, { recursive: true });
+    }
+    cb(null, contentDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage });
 
 function isPortAvailable(port) {
   return new Promise((resolve) => {
@@ -42,6 +60,12 @@ const startServer = async () => {
   // Serve the launcher HTML
   app.get('/', (req, res) => {
     res.sendFile(join(__dirname, 'launcher.html'));
+  });
+
+  // Handle file uploads
+  app.post('/upload', upload.array('files'), (req, res) => {
+    const files = req.files.map(file => file.originalname);
+    res.json({ files });
   });
 
   // Handle command execution

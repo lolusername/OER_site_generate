@@ -12,16 +12,18 @@ This project aims to:
 
 ## ✨ Features
 
-- **Easy Content Management**: Add Markdown and text files directly to the content directory
+- **Easy Content Management**: Upload and manage Markdown and text files through a simple browser interface
 - **Department-Friendly**: Create subject-specific resource collections
-- **No Technical Expertise Required**: Simple file-based content management
+- **No Technical Expertise Required**: User-friendly interface for all faculty members
 - **Instant Deployment**: Quick setup and deployment to GitHub Pages
 - **Open Source**: Freely available and customizable for your department's needs
 
 ## 🚀 Quick Start
 
 1. **Add Content**:
-   - Place your `.md` or `.txt` files directly in the `content/` directory
+   - Start the launcher with `node launcher.js`
+   - Use the browser interface to upload `.md` or `.txt` files
+   - Files are automatically saved to the `content/` directory
    - Use descriptive filenames (e.g., `biology-101.md`)
    - Files are automatically available at `/resource/[filename]`
 
@@ -47,9 +49,10 @@ This project aims to:
    - Organize content by topic or module
    - Include multimedia resources as needed
 
-2. **Add Your Content**:
-   - Place your files directly in the `content/` directory
-   - Use descriptive filenames
+2. **Upload Your Content**:
+   - Start the launcher with `node launcher.js`
+   - Use the browser interface to upload your files
+   - Files are automatically organized in the `content/` directory
    - No additional setup required
 
 3. **Share with Students**:

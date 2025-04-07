@@ -5,7 +5,7 @@ import { marked } from 'marked'
 const readmeContent = ref('')
 
 const getBaseUrl = () => {
-  return import.meta.env.PROD ? '/OER_site_generate/' : ''
+  return import.meta.env.PROD ? '/OER_site_generate/' : '/'
 }
 
 onMounted(async () => {

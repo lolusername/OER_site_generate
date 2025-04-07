@@ -12,7 +12,7 @@ const isMarkdown = ref(false)
 const getBaseUrl = () => {
   // In development, use empty string
   // In production, use the base URL from vite.config.js
-  return import.meta.env.PROD ? '/OER_site_generate/' : ''
+  return import.meta.env.PROD ? '/OER_site_generate/' : '/'
 }
 
 const loadResource = async () => {

@@ -3,7 +3,7 @@ import Home from './views/Home.vue'
 import ResourceView from './views/ResourceView.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/OER_site_generate/'),
   routes: [
     {
       path: '/',

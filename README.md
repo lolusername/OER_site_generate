@@ -28,7 +28,7 @@ This project aims to:
    - Files are automatically available at `/resource/[filename]`
 
 2. **View Content**:
-   - Access your content at `https://lolusername.github.io/OER_site_generate`
+   - After deployment, your content will be available at `https://<your-github-username>.github.io/<repository-name>`
    - Navigate to specific resources using the URL format: `/resource/[filename]`
    - Markdown files are automatically rendered with formatting
 
@@ -56,8 +56,8 @@ This project aims to:
    - No additional setup required
 
 3. **Share with Students**:
-   - Deploy to GitHub Pages
-   - Share the URL with your students
+   - Deploy to GitHub Pages (see Deployment section below)
+   - Share your GitHub Pages URL with your students
    - Update content as needed throughout the semester
 
 ## 📁 Project Structure
@@ -87,8 +87,8 @@ content/        # Educational content files
   - Tailwind CSS for styling
 
 - **Deployment**:
-  - Automatically deploys to GitHub Pages
-  - Handles client-side routing with 404.html
+  - Automatically deploys to GitHub Pages via GitHub Actions
+  - Handles client-side routing
   - Supports both development and production environments
 
 ## 🛠️ Development
@@ -99,7 +99,7 @@ For developers working on the platform:
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 
-*Note: The launcher (`node launcher.js`) is a development tool for testing and is not required for normal usage.*
+*Note: The launcher (`npm start`) provides a browser interface for content management during development.*
 
 ## 🔍 Troubleshooting
 

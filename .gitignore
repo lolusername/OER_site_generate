@@ -5,7 +5,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build output
-dist/
 build/
 
 # Environment
@@ -25,7 +24,6 @@ Thumbs.db
 
 # Node modules and build files
 */node_modules
-dist
 dist-ssr
 *.local
 

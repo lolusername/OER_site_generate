@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/OER_site_generate/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './')
@@ -14,5 +15,10 @@ export default defineConfig({
       allow: ['..']
     }
   },
-  publicDir: '../content'
+  publicDir: '../content',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true
+  }
 }) 

@@ -36,6 +36,13 @@ export default defineConfig({
   server: {
     fs: {
       allow: ['..']
+    },
+    proxy: {
+      '/content': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/content/, '')
+      }
     }
   },
   publicDir: '../content',

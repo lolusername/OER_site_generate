@@ -15,6 +15,10 @@ const router = createRouter({
       name: 'resource',
       component: ResourceView,
       props: true
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     }
   ]
 })

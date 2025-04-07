@@ -50,4 +50,7 @@ content/        # Educational content
 - Tailwind CSS
 - Markdown Support
 - Hot Module Replacement
+
+## Test
+Testing Git authentication
  
